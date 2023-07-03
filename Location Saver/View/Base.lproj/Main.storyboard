@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Map View Controller-->
+        <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Location_Saver" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,9 @@
                             <constraint firstItem="Jli-iH-bHf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vA6-0Q-5Gw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xDb-ai-kna"/>
+                    <navigationItem key="navigationItem" title="Map" id="xDb-ai-kna">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="SNK-aN-0g8"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="map" destination="Jli-iH-bHf" id="DdY-UG-h2W"/>
                     </connections>
@@ -78,17 +80,32 @@
             </objects>
             <point key="canvasLocation" x="939.69465648854953" y="3.5211267605633805"/>
         </scene>
-        <!--Saved View Controller-->
+        <!--Saved Places-->
         <scene sceneID="6ro-Bx-rxZ">
             <objects>
                 <viewController id="FFL-2p-77G" customClass="SavedViewController" customModule="Location_Saver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hE4-TS-hin">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mR3-Ry-8Nr">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eet-sv-H9J"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eet-sv-H9J" firstAttribute="bottom" secondItem="mR3-Ry-8Nr" secondAttribute="bottom" id="Dw7-SF-MIU"/>
+                            <constraint firstItem="mR3-Ry-8Nr" firstAttribute="top" secondItem="eet-sv-H9J" secondAttribute="top" id="SA9-1X-e04"/>
+                            <constraint firstItem="eet-sv-H9J" firstAttribute="trailing" secondItem="mR3-Ry-8Nr" secondAttribute="trailing" id="TAw-xr-6fx"/>
+                            <constraint firstItem="mR3-Ry-8Nr" firstAttribute="leading" secondItem="eet-sv-H9J" secondAttribute="leading" id="tkf-25-Dbc"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="S6n-pr-5rp"/>
+                    <navigationItem key="navigationItem" title="Saved Places" id="S6n-pr-5rp"/>
+                    <connections>
+                        <outlet property="tableView" destination="mR3-Ry-8Nr" id="3S3-AS-da8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUW-eV-yQu" sceneMemberID="firstResponder"/>
             </objects>

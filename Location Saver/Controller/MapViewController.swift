@@ -7,21 +7,45 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 class MapViewController: UIViewController {
 
     
     
     @IBOutlet weak var map: MKMapView!
     
-    
+    var locationManager = CLLocationManager()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Map"
         // Do any additional setup after loading the view.
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        
     }
     
 
+    
+}
+
+
+extension MapViewController: CLLocationManagerDelegate{
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        let location = locations.last
+        print(location!)
+        let center = CLLocationCoordinate2D(latitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        map.setRegion(region, animated: true)
+        map.showsUserLocation = true
+        
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
+        print(error.localizedDescription)
+    }
     
 }
