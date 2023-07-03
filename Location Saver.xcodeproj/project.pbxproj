@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		B04E59042A536C80008160E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E59032A536C80008160E7 /* AppDelegate.swift */; };
 		B04E59062A536C80008160E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E59052A536C80008160E7 /* SceneDelegate.swift */; };
-		B04E59082A536C80008160E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E59072A536C80008160E7 /* ViewController.swift */; };
 		B04E590B2A536C80008160E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04E59092A536C80008160E7 /* Main.storyboard */; };
 		B04E590D2A536C81008160E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04E590C2A536C81008160E7 /* Assets.xcassets */; };
 		B04E59102A536C81008160E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04E590E2A536C81008160E7 /* LaunchScreen.storyboard */; };
 		B04E591B2A536C81008160E7 /* Location_SaverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E591A2A536C81008160E7 /* Location_SaverTests.swift */; };
 		B04E59252A536C81008160E7 /* Location_SaverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E59242A536C81008160E7 /* Location_SaverUITests.swift */; };
 		B04E59272A536C81008160E7 /* Location_SaverUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E59262A536C81008160E7 /* Location_SaverUITestsLaunchTests.swift */; };
+		B04E59372A5378F6008160E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E59362A5378F6008160E7 /* MapViewController.swift */; };
+		B04E59392A53790A008160E7 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E59382A53790A008160E7 /* SavedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 		B04E59002A536C80008160E7 /* Location Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Location Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04E59032A536C80008160E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B04E59052A536C80008160E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B04E59072A536C80008160E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B04E590A2A536C80008160E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B04E590C2A536C81008160E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B04E590F2A536C81008160E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		B04E59202A536C81008160E7 /* Location SaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Location SaverUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04E59242A536C81008160E7 /* Location_SaverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location_SaverUITests.swift; sourceTree = "<group>"; };
 		B04E59262A536C81008160E7 /* Location_SaverUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location_SaverUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B04E59362A5378F6008160E7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B04E59382A53790A008160E7 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +101,12 @@
 		B04E59022A536C80008160E7 /* Location Saver */ = {
 			isa = PBXGroup;
 			children = (
+				B04E59352A5378C9008160E7 /* Controller */,
+				B04E59342A5378BF008160E7 /* View */,
+				B04E59332A5378B0008160E7 /* Model */,
 				B04E59032A536C80008160E7 /* AppDelegate.swift */,
 				B04E59052A536C80008160E7 /* SceneDelegate.swift */,
-				B04E59072A536C80008160E7 /* ViewController.swift */,
-				B04E59092A536C80008160E7 /* Main.storyboard */,
 				B04E590C2A536C81008160E7 /* Assets.xcassets */,
-				B04E590E2A536C81008160E7 /* LaunchScreen.storyboard */,
 				B04E59112A536C81008160E7 /* Info.plist */,
 			);
 			path = "Location Saver";
@@ -125,6 +127,31 @@
 				B04E59262A536C81008160E7 /* Location_SaverUITestsLaunchTests.swift */,
 			);
 			path = "Location SaverUITests";
+			sourceTree = "<group>";
+		};
+		B04E59332A5378B0008160E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B04E59342A5378BF008160E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B04E59092A536C80008160E7 /* Main.storyboard */,
+				B04E590E2A536C81008160E7 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B04E59352A5378C9008160E7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B04E59362A5378F6008160E7 /* MapViewController.swift */,
+				B04E59382A53790A008160E7 /* SavedViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B04E59082A536C80008160E7 /* ViewController.swift in Sources */,
 				B04E59042A536C80008160E7 /* AppDelegate.swift in Sources */,
+				B04E59372A5378F6008160E7 /* MapViewController.swift in Sources */,
+				B04E59392A53790A008160E7 /* SavedViewController.swift in Sources */,
 				B04E59062A536C80008160E7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
