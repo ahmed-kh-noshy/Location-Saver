@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,14 +16,29 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jli-iH-bHf">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jli-iH-bHf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FcK-9F-FIf"/>
+                            <constraint firstItem="Jli-iH-bHf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MpG-G3-shj"/>
+                            <constraint firstItem="Jli-iH-bHf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Mz6-Px-zma"/>
+                            <constraint firstItem="Jli-iH-bHf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vA6-0Q-5Gw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xDb-ai-kna"/>
+                    <connections>
+                        <outlet property="map" destination="Jli-iH-bHf" id="DdY-UG-h2W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="4"/>
+            <point key="canvasLocation" x="1904.5801526717557" y="3.5211267605633805"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EtN-2z-vuh">
@@ -30,6 +46,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Twl-32-8WR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kje-ER-lrJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

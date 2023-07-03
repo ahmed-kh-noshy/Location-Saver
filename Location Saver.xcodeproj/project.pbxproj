@@ -104,8 +104,6 @@
 				B04E59352A5378C9008160E7 /* Controller */,
 				B04E59342A5378BF008160E7 /* View */,
 				B04E59332A5378B0008160E7 /* Model */,
-				B04E59032A536C80008160E7 /* AppDelegate.swift */,
-				B04E59052A536C80008160E7 /* SceneDelegate.swift */,
 				B04E590C2A536C81008160E7 /* Assets.xcassets */,
 				B04E59112A536C81008160E7 /* Info.plist */,
 			);
@@ -148,6 +146,8 @@
 		B04E59352A5378C9008160E7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B04E59032A536C80008160E7 /* AppDelegate.swift */,
+				B04E59052A536C80008160E7 /* SceneDelegate.swift */,
 				B04E59362A5378F6008160E7 /* MapViewController.swift */,
 				B04E59382A53790A008160E7 /* SavedViewController.swift */,
 			);
