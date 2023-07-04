@@ -6,11 +6,12 @@
 //
 
 import Foundation
-
+import RealmSwift
 
 class Places{
     static var shared = Places()
-    var landmarks: [Landmark] = []
-    
+    var landmarks: Results<Landmark>!
+    var userLat: Double=0.0
+    var userLon: Double=0.0
     private init(){}
 }

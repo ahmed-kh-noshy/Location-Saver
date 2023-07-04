@@ -8,9 +8,11 @@
 import UIKit
 import MapKit
 import CoreLocation
+import RealmSwift
 class MapViewController: UIViewController {
-
     
+    var locationManager = CLLocationManager()
+    var realm = try! Realm()
     
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var descreptionTextView: UITextView!
@@ -22,12 +24,20 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
-        let newLandmark = Landmark(name: nameTextField.text!, desc: descreptionTextView.text!, lan: 0.0, lon: 0)
-        Places.shared.landmarks.append(newLandmark)
+        let newLandmark = Landmark()
+        newLandmark.name = nameTextField.text!
+        newLandmark.desc = descreptionTextView.text!
+        newLandmark.lat = Places.shared.userLat
+        newLandmark.lon = Places.shared.userLon
+        try! realm.write{
+            realm.add(newLandmark)
+        }
         
         popUpView.isHidden = true
+        nameTextField.text = nil
+        descreptionTextView.text = nil
     }
-    var locationManager = CLLocationManager()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +46,6 @@ class MapViewController: UIViewController {
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
         popUpView.layer.cornerRadius = 24
         descreptionTextView.layer.cornerRadius = 15
         popUpView.isHidden = true
@@ -53,6 +62,8 @@ extension MapViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         let location = locations.last
         print(location!)
+        Places.shared.userLat = location?.coordinate.latitude ?? 0.0
+        Places.shared.userLon = location?.coordinate.longitude ?? 0.0
         let center = CLLocationCoordinate2D(latitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         map.setRegion(region, animated: true)

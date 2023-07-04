@@ -6,17 +6,14 @@
 //
 
 import UIKit
-
+import MapKit
+import CoreLocation
+import RealmSwift
 class SavedViewController: UIViewController {
 
-    
-    
-    
+    var realm = try! Realm()
     
     @IBOutlet weak var tableView: UITableView!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +23,11 @@ class SavedViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(true)
+        let landmarkes = realm.objects(Landmark.self)
+        Places.shared.landmarks = landmarkes
+        tableView.delegate = self
         tableView.reloadData()
-        print(Places.shared.landmarks)
+        //print(Places.shared.landmarks)
     }
 
 
@@ -37,7 +37,7 @@ class SavedViewController: UIViewController {
 
 extension SavedViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Places.shared.landmarks.count
+        return Places.shared.landmarks?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,5 +48,36 @@ extension SavedViewController: UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let landmark = Places.shared.landmarks[indexPath.row]
+        try! realm.write {
+            realm.delete(landmark)
+            }
+        tableView.reloadData()
+        }
+    func handleSwipeToBack() {
+      dismiss(animated: true, completion: nil)
+    }
     
+}
+
+extension SavedViewController: UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        let latitude:CLLocationDegrees =  Places.shared.landmarks[indexPath.row].lat
+        let longitude:CLLocationDegrees =  Places.shared.landmarks[indexPath.row].lon
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+                    MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                    MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+                    ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        // mapItem.name = "\(self.venueName)"
+        mapItem.openInMaps(launchOptions: options)
+    }
 }
