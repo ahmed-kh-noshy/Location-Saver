@@ -14,9 +14,18 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var map: MKMapView!
     
+    @IBOutlet weak var descreptionTextView: UITextView!
+    @IBOutlet weak var nameTextField: UITextField!
     var locationManager = CLLocationManager()
     
+    @IBOutlet weak var popUpView: UIView!
+    @IBAction func showView(_ sender: Any) {
+        popUpView.isHidden = false
+    }
     
+    @IBAction func saveButton(_ sender: UIButton) {
+        popUpView.isHidden = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,6 +34,9 @@ class MapViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+        popUpView.layer.cornerRadius = 24
+        descreptionTextView.layer.cornerRadius = 15
+        popUpView.isHidden = true
         
     }
     

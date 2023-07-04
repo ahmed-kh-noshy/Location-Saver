@@ -21,21 +21,73 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTF-zX-afD">
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NA2-Fp-EVZ">
+                                        <rect key="frame" x="15" y="25" width="270" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QLh-zI-NdZ">
+                                        <rect key="frame" x="15" y="81" width="270" height="160"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="1MW-Tb-KLZ"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCH-Mh-Nok">
+                                        <rect key="frame" x="85" y="250" width="130" height="35"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yJX-28-Wiy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="2Ll-nH-SsA"/>
+                                    <constraint firstItem="zCH-Mh-Nok" firstAttribute="leading" secondItem="FTF-zX-afD" secondAttribute="leading" constant="85" id="2OG-J2-eww"/>
+                                    <constraint firstAttribute="trailing" secondItem="NA2-Fp-EVZ" secondAttribute="trailing" constant="15" id="2Qs-So-rNS"/>
+                                    <constraint firstAttribute="trailing" secondItem="QLh-zI-NdZ" secondAttribute="trailing" constant="15" id="K5Q-DE-lQq"/>
+                                    <constraint firstItem="NA2-Fp-EVZ" firstAttribute="top" secondItem="FTF-zX-afD" secondAttribute="top" constant="25" id="Low-9l-L71"/>
+                                    <constraint firstItem="zCH-Mh-Nok" firstAttribute="top" secondItem="QLh-zI-NdZ" secondAttribute="bottom" constant="9" id="Zat-1b-Sez"/>
+                                    <constraint firstAttribute="width" constant="300" id="ecC-dn-yIw"/>
+                                    <constraint firstAttribute="height" constant="300" id="ehO-EC-N7F"/>
+                                    <constraint firstItem="QLh-zI-NdZ" firstAttribute="top" secondItem="NA2-Fp-EVZ" secondAttribute="bottom" constant="22" id="ezz-co-nMj"/>
+                                    <constraint firstItem="NA2-Fp-EVZ" firstAttribute="leading" secondItem="FTF-zX-afD" secondAttribute="leading" constant="15" id="mip-3H-u0y"/>
+                                    <constraint firstAttribute="trailing" secondItem="zCH-Mh-Nok" secondAttribute="trailing" constant="85" id="okT-12-iCm"/>
+                                    <constraint firstItem="QLh-zI-NdZ" firstAttribute="leading" secondItem="FTF-zX-afD" secondAttribute="leading" constant="15" id="sw2-DP-ESo"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="FTF-zX-afD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2V5-Kw-Pmv"/>
                             <constraint firstItem="Jli-iH-bHf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FcK-9F-FIf"/>
                             <constraint firstItem="Jli-iH-bHf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MpG-G3-shj"/>
                             <constraint firstItem="Jli-iH-bHf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Mz6-Px-zma"/>
+                            <constraint firstItem="FTF-zX-afD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bfQ-4k-nc0"/>
                             <constraint firstItem="Jli-iH-bHf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vA6-0Q-5Gw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="xDb-ai-kna">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="SNK-aN-0g8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="SNK-aN-0g8">
+                            <connections>
+                                <action selector="showView:" destination="BYZ-38-t0r" id="JI4-1p-XZb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="descreptionTextView" destination="QLh-zI-NdZ" id="1aA-4a-v3r"/>
                         <outlet property="map" destination="Jli-iH-bHf" id="DdY-UG-h2W"/>
+                        <outlet property="nameTextField" destination="NA2-Fp-EVZ" id="aki-Xr-N7b"/>
+                        <outlet property="popUpView" destination="FTF-zX-afD" id="90K-Jk-nER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,8 +186,14 @@
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
