@@ -20,6 +20,7 @@
 		B04E593C2A53942B008160E7 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E593A2A53942B008160E7 /* SavedTableViewCell.swift */; };
 		B04E593D2A53942B008160E7 /* SavedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04E593B2A53942B008160E7 /* SavedTableViewCell.xib */; };
 		B04E593F2A54096B008160E7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E593E2A54096B008160E7 /* Landmark.swift */; };
+		B04E59412A540A2F008160E7 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04E59402A540A2F008160E7 /* Places.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B04E593A2A53942B008160E7 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
 		B04E593B2A53942B008160E7 /* SavedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavedTableViewCell.xib; sourceTree = "<group>"; };
 		B04E593E2A54096B008160E7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		B04E59402A540A2F008160E7 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				B04E593E2A54096B008160E7 /* Landmark.swift */,
+				B04E59402A540A2F008160E7 /* Places.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				B04E59042A536C80008160E7 /* AppDelegate.swift in Sources */,
 				B04E59372A5378F6008160E7 /* MapViewController.swift in Sources */,
 				B04E59392A53790A008160E7 /* SavedViewController.swift in Sources */,
+				B04E59412A540A2F008160E7 /* Places.swift in Sources */,
 				B04E593C2A53942B008160E7 /* SavedTableViewCell.swift in Sources */,
 				B04E59062A536C80008160E7 /* SceneDelegate.swift in Sources */,
 				B04E593F2A54096B008160E7 /* Landmark.swift in Sources */,
