@@ -24,7 +24,12 @@ class SavedViewController: UIViewController {
         tableView.register(UINib(nibName: "SavedTableViewCell", bundle: nil), forCellReuseIdentifier: "savedCell")
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(true)
+        tableView.reloadData()
+        print(Places.shared.landmarks)
+    }
+
 
     
 
@@ -32,14 +37,14 @@ class SavedViewController: UIViewController {
 
 extension SavedViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return Places.shared.landmarks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "savedCell", for: indexPath) as! SavedTableViewCell
-        cell.name.text = "Egypt"
-        cell.desc.text = "this is where i was born, this is where i was born, this is where i was born, this is where i was born, this is where i was born, this is where i was born"
-        cell.time.text = "04:00 AM"
+        cell.name.text = Places.shared.landmarks[indexPath.row].name
+        cell.desc.text = Places.shared.landmarks[indexPath.row].desc
+        cell.time.text = DateFormatter.localizedString(from: Places.shared.landmarks[indexPath.row].time, dateStyle: .short, timeStyle: .short)
         return cell
     }
     

@@ -9,8 +9,8 @@ import Foundation
 
 
 class Places{
-    static shared = Places()
+    static var shared = Places()
     var landmarks: [Landmark] = []
     
-    private init{}
+    private init(){}
 }

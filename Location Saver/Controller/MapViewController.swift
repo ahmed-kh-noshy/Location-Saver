@@ -22,6 +22,9 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
+        let newLandmark = Landmark(name: nameTextField.text!, desc: descreptionTextView.text!, lan: 0.0, lon: 0)
+        Places.shared.landmarks.append(newLandmark)
+        
         popUpView.isHidden = true
     }
     var locationManager = CLLocationManager()
