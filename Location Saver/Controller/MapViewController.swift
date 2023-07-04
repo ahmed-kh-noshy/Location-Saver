@@ -38,6 +38,11 @@ class MapViewController: UIViewController {
         descreptionTextView.text = nil
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        self.popUpView.isHidden = true
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
