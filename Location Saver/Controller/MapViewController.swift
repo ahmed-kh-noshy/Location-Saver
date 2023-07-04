@@ -13,12 +13,10 @@ class MapViewController: UIViewController {
     
     
     @IBOutlet weak var map: MKMapView!
-    
     @IBOutlet weak var descreptionTextView: UITextView!
     @IBOutlet weak var nameTextField: UITextField!
-    var locationManager = CLLocationManager()
-    
     @IBOutlet weak var popUpView: UIView!
+
     @IBAction func showView(_ sender: Any) {
         popUpView.isHidden = false
     }
@@ -26,6 +24,8 @@ class MapViewController: UIViewController {
     @IBAction func saveButton(_ sender: UIButton) {
         popUpView.isHidden = true
     }
+    var locationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
